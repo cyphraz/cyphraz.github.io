@@ -3,30 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syed Nihaal Ahmed | Data Science Portfolio</title>
+  <title>Zarif · Data Science Portfolio</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       background: #0a0f1c;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       color: #eef2ff;
       line-height: 1.5;
-      padding: 2rem;
+      padding: 2rem 1.5rem;
     }
+
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.92);
       backdrop-filter: blur(2px);
       border-radius: 2rem;
       padding: 2rem 2.5rem;
-      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.5);
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.6);
       border: 1px solid #1e293b;
+      transition: all 0.2s;
     }
+
+    /* header */
     .header {
       display: flex;
       justify-content: space-between;
@@ -37,6 +45,7 @@
       padding-bottom: 1.5rem;
       margin-bottom: 2rem;
     }
+
     .name h1 {
       font-size: 1.8rem;
       font-weight: 700;
@@ -45,27 +54,40 @@
       background-clip: text;
       color: transparent;
     }
-    .nav a {
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+
+    .nav-links a {
       color: #94a3b8;
       text-decoration: none;
-      margin-left: 1.2rem;
       font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
     }
-    .nav a:hover {
+
+    .nav-links a:hover {
       color: #60a5fa;
+      border-bottom-color: #60a5fa;
     }
-    .badge {
+
+    /* portfolio badge */
+    .portfolio-badge {
       display: inline-block;
       background: #1e293b;
       padding: 0.2rem 1rem;
       border-radius: 40px;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
       color: #94a3b8;
       margin-bottom: 1rem;
     }
+
     h2 {
       font-size: 3rem;
       font-weight: 800;
@@ -74,83 +96,173 @@
       background-clip: text;
       color: transparent;
       margin-bottom: 1rem;
+      letter-spacing: -0.02em;
     }
+
     .tagline {
       font-size: 1.2rem;
       color: #cbd5e1;
       border-left: 4px solid #60a5fa;
       padding-left: 1.2rem;
-      margin: 1.2rem 0;
+      margin: 1.2rem 0 1.5rem 0;
     }
+
     .bio {
       margin: 1.5rem 0;
       color: #cbd5e1;
       max-width: 80%;
     }
-    .buttons {
+
+    .button-group {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
-      margin: 2rem 0;
+      margin: 2rem 0 2rem 0;
     }
+
     .btn-primary, .btn-secondary {
       padding: 0.7rem 1.8rem;
       border-radius: 40px;
       font-weight: 600;
+      font-size: 0.9rem;
       border: none;
       cursor: pointer;
       font-family: inherit;
-      font-size: 0.9rem;
+      transition: all 0.2s;
     }
+
     .btn-primary {
       background: #3b82f6;
       color: white;
+      box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
     }
+
     .btn-primary:hover {
       background: #2563eb;
+      transform: translateY(-2px);
     }
+
     .btn-secondary {
       background: #1e293b;
       color: #94a3b8;
       border: 1px solid #334155;
     }
-    .stats {
+
+    .btn-secondary:hover {
+      background: #2d3a52;
+      color: #cbd5e1;
+      transform: translateY(-2px);
+    }
+
+    /* stats grid */
+    .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       margin-top: 2rem;
-      padding-top: 1.5rem;
+      padding-top: 1.8rem;
       border-top: 1px solid #1e293b;
     }
+
     .stat-card {
       background: #0f172a;
       padding: 1.2rem;
       text-align: center;
       border-radius: 1.2rem;
+      transition: all 0.2s;
+      border: 1px solid #1e293b;
     }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: #3b82f6;
+    }
+
     .stat-number {
       font-size: 2.5rem;
       font-weight: 800;
       color: #60a5fa;
+      line-height: 1;
     }
+
     .stat-label {
       font-size: 0.85rem;
       color: #94a3b8;
+      margin-top: 0.3rem;
     }
+
+    /* skills section (optional but nice) */
+    .skills-section {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+    }
+
+    .skills-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #e2e8f0;
+      border-left: 3px solid #60a5fa;
+      padding-left: 1rem;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .skill-tag {
+      background: #1e293b;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #cbd5e1;
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #5b6e8c;
+      border-top: 1px solid #1e293b;
+      padding-top: 1.5rem;
+    }
+
     @media (max-width: 700px) {
-      .container { padding: 1.5rem; }
-      h2 { font-size: 2rem; }
-      .bio { max-width: 100%; }
-      .stats { grid-template-columns: 1fr; }
-      .header { flex-direction: column; align-items: flex-start; }
-      .nav a { margin-left: 0; margin-right: 1rem; }
+      .container {
+        padding: 1.5rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      .bio {
+        max-width: 100%;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        gap: 0.8rem;
+      }
     }
   </style>
 </head>
 <body>
+
 <div class="container">
+  <!-- Header with navigation -->
   <div class="header">
-    <div class="name"><h1>Syed Nihaal Ahmed</h1></div>
-    <div class="nav">
+    <div class="name">
+      <h1>Zarif Ahmed</h1>
+    </div>
+    <div class="nav-links">
       <a href="#">Starred</a>
       <a href="#">Projects</a>
       <a href="#">Repos</a>
@@ -162,24 +274,86 @@
     </div>
   </div>
 
-  <div class="badge">PORTFOLIO</div>
+  <!-- Main portfolio content -->
+  <div class="portfolio-badge">PORTFOLIO</div>
   <h2>PORTFOLIO</h2>
   <div class="tagline">
-    📊 Building predictive models, analytical pipelines, and data-driven solutions that turn raw numbers into meaning.
+    <i class="fas fa-chart-line" style="margin-right: 8px; color:#60a5fa;"></i>
+    Building predictive models, analytical pipelines, and data-driven solutions that turn raw numbers into meaning.
   </div>
   <div class="bio">
-    <strong>Hi, I am Syed,</strong> an Information Technology student at Middlesex University Dubai. I am working towards a career in research-based Data Science — applying machine learning and statistical modelling to solve real-world problems at the highest level.
+    <strong>Hi, I am Zarif,</strong> a Computer Science student passionate about Data Science and AI. I am working towards a career in research-based Machine Learning — applying statistical modelling and deep learning to solve real-world problems at the highest level.
   </div>
-  <div class="buttons">
-    <button class="btn-primary" onclick="alert('🚀 Projects: ML models, analytics pipelines, and research case studies.')">View Projects</button>
-    <button class="btn-secondary" onclick="alert('📬 Get in touch: syed@cyphraz.com (replace with your real email)')">Get In Touch</button>
+  <div class="button-group">
+    <button class="btn-primary" id="viewProjectsBtn"><i class="fas fa-arrow-right"></i> View Projects</button>
+    <button class="btn-secondary" id="getInTouchBtn"><i class="far fa-comment-dots"></i> Get In Touch</button>
   </div>
 
-  <div class="stats">
-    <div class="stat-card"><div class="stat-number">9</div><div class="stat-label">📁 Public Repositories</div></div>
-    <div class="stat-card"><div class="stat-number">41</div><div class="stat-label">📅 Contributions (This Year)</div></div>
-    <div class="stat-card"><div class="stat-number">5/10</div><div class="stat-label">👥 Followers / Following</div></div>
+  <!-- Stats exactly like reference -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">12</div>
+      <div class="stat-label"><i class="fas fa-code-branch"></i> Public Repositories</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">53</div>
+      <div class="stat-label"><i class="fas fa-calendar-alt"></i> Contributions (This Year)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">8/12</div>
+      <div class="stat-label"><i class="fas fa-users"></i> Followers / Following</div>
+    </div>
+  </div>
+
+  <!-- Optional skills section (can remove or keep) -->
+  <div class="skills-section">
+    <div class="skills-title"><i class="fas fa-tools"></i> Tech Toolbox</div>
+    <div class="skills-grid">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Pandas</span>
+      <span class="skill-tag">NumPy</span>
+      <span class="skill-tag">Scikit-learn</span>
+      <span class="skill-tag">TensorFlow</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">Tableau</span>
+      <span class="skill-tag">Git</span>
+      <span class="skill-tag">Power BI</span>
+      <span class="skill-tag">Jupyter</span>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <i class="fab fa-github"></i> github.com/zarif-data  ·  Based in Dubai, UAE  ·  Open for collaborations
   </div>
 </div>
+
+<script>
+  // Interactive buttons – replace with your real email / project links
+  const viewBtn = document.getElementById('viewProjectsBtn');
+  const contactBtn = document.getElementById('getInTouchBtn');
+
+  if (viewBtn) {
+    viewBtn.addEventListener('click', () => {
+      alert("✨ Featured projects: House Price Prediction, Customer Churn Analysis, and NLP Sentiment Classifier. (Check GitHub for repos)");
+    });
+  }
+
+  if (contactBtn) {
+    contactBtn.addEventListener('click', () => {
+      alert("📬 Get in touch: zarif@example.com  |  Let's build something impactful together!");
+    });
+  }
+
+  // Navigation links placeholder behavior
+  const allNavLinks = document.querySelectorAll('.nav-links a');
+  allNavLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const section = link.innerText.trim();
+      alert(`🔍 ${section} section — coming soon. Full portfolio experience under active development.`);
+    });
+  });
+</script>
+
 </body>
 </html>
